@@ -41,6 +41,8 @@ Create a `config.json` file:
 **Note:** The `networks` config will be passed directly to [coffea's connect
 function](https://github.com/caffeinery/coffea/tree/1.0-beta#connecting).
 
+Don't forget to install the protocol (e.g. `npm install --save coffea-slack`)
+
 
 ## Running
 
