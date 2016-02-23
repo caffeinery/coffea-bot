@@ -3,25 +3,29 @@ const { debug, info, error } = makeLogger('plugin')
 
 import { defaultImport } from 'coffea'
 
-export const loadPlugin = (name) => {
-  let plugin
-  info(`Attempting to load the plugin "${name}"`)
-
+const importPlugin = (name) => {
   try {
     debug(`Trying to load plugin "${name}" from plugins/`)
-    plugin = defaultImport(require('../plugins/' + name))
+    return defaultImport(require('../plugins/' + name))
   } catch (e) {
     debug(`Plugin "${name}" not found in plugins/, trying to load from npm`)
     try {
-      plugin = defaultImport(require(name))
+      return defaultImport(require(name))
     } catch (e2) {
       error(`Plugin "${name}" not found in plugins/ or node_modules/`)
       throw new Error(`The plugin "${name}" isn't installed. Try running: npm install --save ${name}`)
     }
   }
+}
+
+export const loadPlugin = (config) => (name) => {
+  info(`Attempting to load the plugin "${name}"`)
+
+  const plugin = importPlugin(name)
 
   info(`Plugin "${name}" loaded`)
   plugin.pluginName = name
+  plugin.config = config.plugins[name]
   return plugin
 }
 
@@ -29,7 +33,7 @@ export const applyPlugin = (networks, plugin) => {
   const name = plugin.pluginName
   debug(`Applying plugin ${name}`)
 
-  const commands = plugin(networks)
+  const commands = plugin(networks, plugin.config)
 
   if (commands) {
     debug(`Registering commands exported by "${name}" plugin: ${Object.keys(commands)}`)
