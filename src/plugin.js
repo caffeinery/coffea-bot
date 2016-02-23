@@ -6,7 +6,7 @@ import { defaultImport } from 'coffea'
 const importPlugin = (name) => {
   try {
     debug(`Trying to load plugin "${name}" from plugins/`)
-    return defaultImport(require('../plugins/' + name))
+    return defaultImport(require(__dirname + '/../plugins/' + name))
   } catch (e) {
     debug(`Plugin "${name}" not found in plugins/, trying to load from npm`)
     try {
