@@ -1,6 +1,7 @@
 # coffea-bot
 
-_a bot framework for [coffea 1.0-beta](https://github.com/caffeinery/coffea/tree/1.0-beta) using ES6 modules for plugins_
+_a bot framework for [coffea 1.0-beta](https://github.com/caffeinery/coffea/tree/1.0-beta)
+using [ES6 modules](http://www.2ality.com/2014/09/es6-modules-final.html) for plugins_
 
 **WARNING: work-in-progress - not implemented yet!**
 
