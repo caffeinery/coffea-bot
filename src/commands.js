@@ -1,6 +1,8 @@
 import { makeLogger } from './utils'
 const { debug } = makeLogger('commands')
 
+import { message } from 'coffea'
+
 const parseCommand = (commands, cmd, args) => {
   debug(`parsing command (${cmd} - ${args}): ` + JSON.stringify(commands))
 
@@ -20,7 +22,7 @@ const parseCommand = (commands, cmd, args) => {
     return commands['default']
   } else {
     debug('command not found: ' + cmd)
-    return (e, reply) => reply('command not found') // TODO: make this customizable
+    return (e, reply) => reply(message(e.channel, 'command not found')) // TODO: make this customizable
   }
 }
 
