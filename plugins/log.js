@@ -18,7 +18,7 @@ export default function log (networks) {
 
   return {
     'disable': callAndReply(unsubscribe, 'Disabled logging.'),
-    'enable': callAndReply(unsubscribe, 'Enabled logging.'),
+    'enable': callAndReply(subscribe, 'Enabled logging.'),
     'default': justReply('Usage: /log disable|enable')
   }
 }
