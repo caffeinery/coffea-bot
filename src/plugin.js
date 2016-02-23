@@ -31,10 +31,12 @@ export const applyPlugin = (networks, plugin) => {
 
   const commands = plugin(networks)
 
-  debug(`Registering commands exported by "${name}" plugin: ${Object.keys(commands)}`)
+  if (commands) {
+    debug(`Registering commands exported by "${name}" plugin: ${Object.keys(commands)}`)
 
-  if (!networks.commands) networks.commands = {}
-  networks.commands[name] = commands
+    if (!networks.commands) networks.commands = {}
+    networks.commands[name] = commands
+  }
 
   return networks
 }
