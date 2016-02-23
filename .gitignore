@@ -34,3 +34,5 @@ node_modules
 
 # Output from `webpack`
 lib
+
+config.json
