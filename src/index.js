@@ -4,6 +4,9 @@ const { debug, info } = makeLogger('index')
 import config from '../config'
 import init from './init'
 
-info('Initializing coffea-bot...')
+import { version } from '../package.json'
+export const VERSION = version
+
+info('Initializing coffea-bot v' + VERSION)
 debug('config: ' + JSON.stringify(config))
 init(config)
