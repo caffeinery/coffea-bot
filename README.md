@@ -8,6 +8,11 @@ using [ES6 modules](http://www.2ality.com/2014/09/es6-modules-final.html) for pl
 This is not a finished project yet, [there are a few proposals](https://github.com/caffeinery/coffea-bot/issues) that need to be thought through and implemented.
 
 
+## Prerequisites
+
+If you haven't read it yet, you should probably read the [coffea 1.0-beta README.md](https://github.com/caffeinery/coffea/tree/1.0-beta) first.
+
+
 ## Installation
 
 First you need to clone the repository to get the latest version of the bot.
