@@ -3,7 +3,7 @@ export const VERSION = '0.1.0'
 const parseMessage = (dispatch, prefix, delimiter = ' ') => (e, reply) => {
   const { text } = e
 
-  if (!text.startsWith(prefix)) return
+  if (!text || !text.startsWith(prefix)) return
   const textWithoutPrefix = text.slice(prefix.length)
 
   const args = textWithoutPrefix.split(delimiter)
